@@ -43,4 +43,11 @@ functions:
           path: recipes/steps/{id}
           method: get
 
+  getsimilar:
+    handler: getsimilar.main
+    events:
+      - http:
+          path: recipes/similar/{id}
+          method: get
+
 
