@@ -42,4 +42,11 @@ functions:
           path: info/{id}
           method: get
 
+  getsteps:
+    handler: getsteps.main
+    events:
+      - http:
+          path: steps/{id}
+          method: get
+
 
