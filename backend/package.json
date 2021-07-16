@@ -13,5 +13,8 @@
     "serverless-bundle": "^4.3.1",
     "serverless-dotenv-plugin": "^3.9.0",
     "serverless-offline": "^7.0.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
   }
 }

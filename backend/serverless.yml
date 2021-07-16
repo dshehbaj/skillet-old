@@ -12,6 +12,9 @@ provider:
   stage: dev
   lambdaHashingVersion: 20201221
 
+  environment:
+    spoonacularAPIKey: ${env:SPOONACULAR_API_KEY}
+
 plugins:
   - serverless-bundle
   - serverless-offline
@@ -19,9 +22,17 @@ plugins:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: handler.main
     events:
       - http:
-        path: hello
-        method: get
+          path: hello
+          method: get
+
+  search:
+    handler: search.main
+    events:
+      - http:
+          path: search
+          method: post
+
 
