@@ -21,12 +21,6 @@ plugins:
   - serverless-dotenv-plugin
 
 functions:
-  hello:
-    handler: handler.main
-    events:
-      - http:
-          path: hello
-          method: get
 
   search:
     handler: search.main
