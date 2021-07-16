@@ -28,6 +28,8 @@ functions:
       - http:
           path: recipes/search
           method: post
+          cors: true
+          authorizer: aws_iam
 
   getinfo:
     handler: getinfo.main
@@ -35,6 +37,8 @@ functions:
       - http:
           path: recipes/info/{id}
           method: get
+          cors: true
+          authorizer: aws_iam
 
   getsteps:
     handler: getsteps.main
@@ -42,6 +46,8 @@ functions:
       - http:
           path: recipes/steps/{id}
           method: get
+          cors: true
+          authorizer: aws_iam
 
   getsimilar:
     handler: getsimilar.main
@@ -49,5 +55,7 @@ functions:
       - http:
           path: recipes/similar/{id}
           method: get
+          cors: true
+          authorizer: aws_iam
 
 
