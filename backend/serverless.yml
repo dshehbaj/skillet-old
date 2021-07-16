@@ -35,4 +35,11 @@ functions:
           path: search
           method: post
 
+  getinfo:
+    handler: getinfo.main
+    events:
+      - http:
+          path: info/{id}
+          method: get
+
 

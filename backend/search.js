@@ -39,7 +39,6 @@ export const main = handler(async (event, context) => {
     };
   });
 
-  console.log(newArr);
   return newArr;
 
 });
