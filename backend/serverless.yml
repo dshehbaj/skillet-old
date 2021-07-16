@@ -26,21 +26,21 @@ functions:
     handler: search.main
     events:
       - http:
-          path: search
+          path: recipes/search
           method: post
 
   getinfo:
     handler: getinfo.main
     events:
       - http:
-          path: info/{id}
+          path: recipes/info/{id}
           method: get
 
   getsteps:
     handler: getsteps.main
     events:
       - http:
-          path: steps/{id}
+          path: recipes/steps/{id}
           method: get
 
 
