@@ -24,7 +24,18 @@ export const main = handler(async (event, context) => {
       ingredientAmount:
         recipeData["missedIngredientCount"] + recipeData["usedIngredientCount"],
       ingredients:
-        recipeData["usedIngredients"].concat(recipeData["missedIngredients"])
+        recipeData["usedIngredients"]
+        .concat(recipeData["missedIngredients"])
+        .map((ingredient) => {
+          return {
+            id: ingredient["id"],
+            unit: ingredient["unit"],
+            amount: ingredient["amount"],
+            name: ingredient["name"],
+            desc: ingredient["original"],
+            image: ingredient["image"]
+          };
+        })
     };
   });
 
