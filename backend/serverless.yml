@@ -1,0 +1,27 @@
+service: skillet-backend
+
+package:
+  individually: true
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  stage: dev
+  lambdaHashingVersion: 20201221
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+        path: hello
+        method: get
+
