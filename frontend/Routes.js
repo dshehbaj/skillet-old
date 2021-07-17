@@ -29,9 +29,8 @@ const theme = {
     ...PaperDefault.colors,
     ...NavDefault.colors,
     primary: colorPalette.GLight4,
-    accent: 'white',
     background: 'white',
-    text: colorPalette.GDark1,
+    text: colorPalette.GLight4,
     placeholder: 'gray'
   }
 }
