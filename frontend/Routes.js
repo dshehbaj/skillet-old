@@ -4,9 +4,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Provider as PaperProvider, DefaultTheme as PaperDefault } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 
-import LikesView from './screens/LikesView';
-import ProfileView from './screens/ProfileView';
-import ExploreView from './screens/ExploreView';
+import LikesView from './tabs/LikesView';
+import ProfileView from './tabs/ProfileView';
+import ExploreView from './tabs/ExploreView';
 
 const colorPalette = {
   GLight1: '#B7EFC5',
