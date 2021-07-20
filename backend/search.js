@@ -33,7 +33,7 @@ export const main = handler(async (event, context) => {
             amount: ingredient["amount"],
             name: ingredient["name"],
             desc: ingredient["original"],
-            image: ingredient["image"]
+            image: ingredient["image"].replace('312x231', '636x393')
           };
         })
     };
