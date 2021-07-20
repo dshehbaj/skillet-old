@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { View, ScrollView } from 'react-native';
 import { API } from 'aws-amplify';
-import MyCard from '../components/RecipeCard';
+import RecipeCard from '../components/RecipeCard';
 
 export default function ({ navigation }) {
 
@@ -10,7 +10,7 @@ export default function ({ navigation }) {
   const [recipes, setRecipes] = useState([]);
 
   const openInfo = (data) => {
-    navigation.navigate("Information", { data: data });
+    navigation.navigate("RecipeInfo", { data: data });
   };
 
   const searchRecipes = async (query) => {
@@ -31,11 +31,12 @@ export default function ({ navigation }) {
         value={query}
         onChangeText={setQuery}
         onSubmitEditing={() => searchRecipes(query)}
+        onIconPress={() => searchRecipes(query)}
         style={{ margin: '5%', borderRadius:20 }}
       />
       <ScrollView>
         {recipes.map((rec) => {
-          return (<MyCard data={rec} openInfo={openInfo} actions={true}/>)
+          return (<RecipeCard data={rec} openInfo={openInfo} actions={true}/>);
         })}
       </ScrollView>
     </View>

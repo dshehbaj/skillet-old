@@ -26,7 +26,7 @@ export default function (props) {
       </Card.Content>
       <Card.Cover source={{ uri: props.data.image }} />
       { //if props.actions then right side of && is returned
-        props.actions &&
+        props.actions ?
         <Card.Actions>
           {
             isLiked ?
@@ -35,6 +35,19 @@ export default function (props) {
             <Button icon="heart-outline" onPress={changeLikeStatus} />
           }
           <Button icon="book-open" onPress={() => props.openInfo(props.data)}/>
+        </Card.Actions>
+        :
+        <Card.Actions>
+          <Button
+            onPress={() => props.openInstructions(props.data)}
+          >
+            Instructions
+          </Button>
+          <Button
+            onPress={() => props.openSimilar(props.data)}
+          >
+            Similar
+          </Button>
         </Card.Actions>
       }
     </Card>

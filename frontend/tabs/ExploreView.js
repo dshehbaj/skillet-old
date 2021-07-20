@@ -4,6 +4,7 @@ import CenterView from '../components/CenterView';
 import { createStackNavigator } from '@react-navigation/stack';
 import TopBar from '../components/TopBar';
 import SearchScreen from '../screens/SearchScreen';
+import RecipeScreen from '../screens/RecipeScreen';
 
 const Stack = createStackNavigator();
 
@@ -33,7 +34,7 @@ export default function ({}) {
       }}
     >
       <Stack.Screen name="Explore" component={SearchScreen} />
-      <Stack.Screen name="Information" component={Information} />
+      <Stack.Screen name="RecipeInfo" component={RecipeScreen} />
       <Stack.Screen name="Instructions" component={PlaceholderScreen} />
       <Stack.Screen name="Similar" component={PlaceholderScreen} />
     </Stack.Navigator>
