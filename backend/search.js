@@ -20,7 +20,7 @@ export const main = handler(async (event, context) => {
     return {
       id: recipeData["id"],
       title: recipeData["title"],
-      image: recipeData["image"].replace('321x213', '636x393'),
+      image: recipeData["image"].replace('312x231', '636x393'),
       ingredientAmount:
         recipeData["missedIngredientCount"] + recipeData["usedIngredientCount"],
       ingredients:
