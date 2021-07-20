@@ -7,10 +7,19 @@ import SearchScreen from '../screens/SearchScreen';
 
 const Stack = createStackNavigator();
 
-function DetailsScreen() {
+function PlaceholderScreen() {
   return (
     <CenterView>
-      <Text>Details Screen</Text>
+      <Text>Placeholder Screen</Text>
+    </CenterView>
+  );
+}
+
+function Information({ navigation, route }) {
+  const { data } = route.params;
+  return (
+    <CenterView>
+      <Text>Here you can see information for {data.title}</Text>
     </CenterView>
   );
 }
@@ -23,8 +32,10 @@ export default function ({}) {
         header: (props) => <TopBar {...props} />
       }}
     >
-      <Stack.Screen name="Home" component={SearchScreen} />
-      <Stack.Screen name="Details" component={DetailsScreen} />
+      <Stack.Screen name="Explore" component={SearchScreen} />
+      <Stack.Screen name="Information" component={Information} />
+      <Stack.Screen name="Instructions" component={PlaceholderScreen} />
+      <Stack.Screen name="Similar" component={PlaceholderScreen} />
     </Stack.Navigator>
   );
 };

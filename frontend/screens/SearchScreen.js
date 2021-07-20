@@ -9,31 +9,33 @@ export default function ({ navigation }) {
   const [query, setQuery] = useState('');
   const [recipes, setRecipes] = useState([]);
 
-  const onChangeQuery = (query) => setQuery(query);
+  const openInfo = (data) => {
+    navigation.navigate("Information", { data: data });
+  };
 
   const searchRecipes = async (query) => {
-    let tokens = query.toLowerCase().split(' ');
-    let result = []
-    if (tokens.length != 0 && query.length != 0) {
+    let result = [];
+    if (query.length != 0) {
       result = await API.post("skillet", "/recipes/search", {
-        body: { ingredients: tokens, quantity: 10 }
+        body: { ingredients: query.toLowerCase().split(' '), quantity: 10 }
       });
     }
     setRecipes(result);
   };
 
+  // flex: 1 needed for ScrollView
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Searchbar
         placeholder="Enter Ingredients"
         value={query}
-        onChangeText={onChangeQuery}
+        onChangeText={setQuery}
         onSubmitEditing={() => searchRecipes(query)}
         style={{ margin: '5%', borderRadius:20 }}
       />
-      <ScrollView style={{marginBottom: '20%'}}>
+      <ScrollView>
         {recipes.map((rec) => {
-          return (<MyCard data={rec}/>)
+          return (<MyCard data={rec} openInfo={openInfo} actions={true}/>)
         })}
       </ScrollView>
     </View>
