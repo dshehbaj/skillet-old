@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, ScrollView } from 'react-native';
+import { Button, Card, Title, Paragraph } from 'react-native-paper';
 import { API } from 'aws-amplify';
 import RecipeCard from '../components/RecipeCard';
 import CenterView from '../components/CenterView';
@@ -28,6 +29,18 @@ export default function ({ navigation, route }) {
         <CenterView>
           <Text>Here you can see information on {data.title}</Text>
         </CenterView>
+        {data.ingredients.map(({ unit, amount, name, image }) => {
+          return (
+            <Card style={{ margin: '5%', borderRadius: 0 }}>
+              <Card.Content>
+                <Paragraph style={{textTransform: "capitalize"}}>
+                  {`${amount} ${unit} ${name}`}
+                </Paragraph>
+              </Card.Content>
+              <Card.Cover source={{ uri: image }} />
+            </Card>
+          );
+        })}
       </ScrollView>
     </View>
   );

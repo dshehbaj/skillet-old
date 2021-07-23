@@ -15,7 +15,7 @@ export default function (props) {
   };
 
   return (
-    <Card style={{ margin: '5%', borderRadius: 20 }}>
+    <Card style={{ margin: '5%', borderRadius: 5 }}>
       <Card.Content>
         <Title style={{textTransform: "capitalize"}}>
           {props.data.title}
@@ -25,30 +25,34 @@ export default function (props) {
         </Paragraph>
       </Card.Content>
       <Card.Cover source={{ uri: props.data.image }} />
-      { //if props.actions then right side of && is returned
+      {
         props.actions ?
-        <Card.Actions>
-          {
-            isLiked ?
-            <Button icon="heart" onPress={changeLikeStatus} />
-            :
-            <Button icon="heart-outline" onPress={changeLikeStatus} />
-          }
-          <Button icon="book-open" onPress={() => props.openInfo(props.data)}/>
-        </Card.Actions>
+
+          <Card.Actions>
+            {
+              isLiked ?
+              <Button icon="heart" onPress={changeLikeStatus} />
+              :
+              <Button icon="heart-outline" onPress={changeLikeStatus} />
+            }
+            <Button icon="book-open" onPress={() => props.openInfo(props.data)}/>
+          </Card.Actions>
+
         :
-        <Card.Actions>
-          <Button
-            onPress={() => props.openInstructions(props.data)}
-          >
-            Instructions
-          </Button>
-          <Button
-            onPress={() => props.openSimilar(props.data)}
-          >
-            Similar
-          </Button>
-        </Card.Actions>
+
+          <Card.Actions>
+            <Button
+              onPress={() => props.openInstructions(props.data)}
+            >
+              Instructions
+            </Button>
+            <Button
+              onPress={() => props.openSimilar(props.data)}
+            >
+              Similar
+            </Button>
+          </Card.Actions>
+
       }
     </Card>
   );
