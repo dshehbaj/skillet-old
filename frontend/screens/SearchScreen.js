@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { Searchbar } from 'react-native-paper';
-import { View, ScrollView } from 'react-native';
-import { API } from 'aws-amplify';
-import RecipeCard from '../components/RecipeCard';
+import React, { useState } from "react";
+import { Searchbar } from "react-native-paper";
+import { View, ScrollView } from "react-native";
+import { API } from "aws-amplify";
+import RecipeCard from "../components/RecipeCard";
 
 export default function ({ navigation }) {
-
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
 
   const openInfo = (data) => {
@@ -17,7 +16,7 @@ export default function ({ navigation }) {
     let result = [];
     if (query.length != 0) {
       result = await API.post("skillet", "/recipes/search", {
-        body: { ingredients: query.toLowerCase().split(' '), quantity: 10 }
+        body: { ingredients: query.toLowerCase().split(" "), quantity: 10 },
       });
     }
     setRecipes(result);
@@ -32,13 +31,13 @@ export default function ({ navigation }) {
         onChangeText={setQuery}
         onSubmitEditing={() => searchRecipes(query)}
         onIconPress={() => searchRecipes(query)}
-        style={{ margin: '5%', borderRadius:20 }}
+        style={{ margin: "5%", borderRadius: 20 }}
       />
       <ScrollView>
         {recipes.map((rec) => {
-          return (<RecipeCard data={rec} openInfo={openInfo} actions={true}/>);
+          return <RecipeCard data={rec} openInfo={openInfo} actions={true} />;
         })}
       </ScrollView>
     </View>
   );
-};
+}

@@ -1,12 +1,11 @@
-import React from 'react';
-import { Text, View, ScrollView } from 'react-native';
-import { Button, Card, Title, Paragraph } from 'react-native-paper';
-import { API } from 'aws-amplify';
-import RecipeCard from '../components/RecipeCard';
-import CenterView from '../components/CenterView';
+import React from "react";
+import { Text, View, ScrollView } from "react-native";
+import { Button, Card, Title, Paragraph } from "react-native-paper";
+import { API } from "aws-amplify";
+import RecipeCard from "../components/RecipeCard";
+import CenterView from "../components/CenterView";
 
 export default function ({ navigation, route }) {
-
   const { data } = route.params;
 
   const openInstructions = (data) => {
@@ -31,9 +30,9 @@ export default function ({ navigation, route }) {
         </CenterView>
         {data.ingredients.map(({ unit, amount, name, image }) => {
           return (
-            <Card style={{ margin: '5%', borderRadius: 0 }}>
+            <Card style={{ margin: "5%", borderRadius: 0 }}>
               <Card.Content>
-                <Paragraph style={{textTransform: "capitalize"}}>
+                <Paragraph style={{ textTransform: "capitalize" }}>
                   {`${amount} ${unit} ${name}`}
                 </Paragraph>
               </Card.Content>
@@ -44,4 +43,4 @@ export default function ({ navigation, route }) {
       </ScrollView>
     </View>
   );
-};
+}

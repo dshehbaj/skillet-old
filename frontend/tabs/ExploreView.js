@@ -1,10 +1,10 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import CenterView from '../components/CenterView';
-import { createStackNavigator } from '@react-navigation/stack';
-import TopBar from '../components/TopBar';
-import SearchScreen from '../screens/SearchScreen';
-import RecipeScreen from '../screens/RecipeScreen';
+import React from "react";
+import { Text, View } from "react-native";
+import CenterView from "../components/CenterView";
+import { createStackNavigator } from "@react-navigation/stack";
+import TopBar from "../components/TopBar";
+import SearchScreen from "../screens/SearchScreen";
+import RecipeScreen from "../screens/RecipeScreen";
 
 const Stack = createStackNavigator();
 
@@ -30,7 +30,7 @@ export default function ({}) {
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
-        header: (props) => <TopBar {...props} />
+        header: (props) => <TopBar {...props} />,
       }}
     >
       <Stack.Screen name="Explore" component={SearchScreen} />
@@ -39,4 +39,4 @@ export default function ({}) {
       <Stack.Screen name="Similar" component={PlaceholderScreen} />
     </Stack.Navigator>
   );
-};
+}
