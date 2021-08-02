@@ -59,7 +59,9 @@ export default function ({ navigation, route }) {
         {info && (
           <List.Section style={{ margin: "5%", borderRadius: 5 }}>
             <List.Accordion title="Nutrients">
-              <List.Item title="nutrients" />
+              {info.nutrients.map(({ name, amount, unit }) => {
+                return <List.Item><Text>bruh</Text></List.Item>;
+              })}
             </List.Accordion>
           </List.Section>
         )}
@@ -79,8 +81,8 @@ export default function ({ navigation, route }) {
             })}
           </List.Accordion>
         </List.Section>
+        <Button onPress={() => Linking.openURL(info.source)}>Source</Button>
       </ScrollView>
-      <Button onPress={() => Linking.openURL(info.source)}>Source</Button>
     </View>
   );
 }
